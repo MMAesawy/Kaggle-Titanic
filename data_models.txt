@@ -1,0 +1,148 @@
+Pclass
+
+SVM score: 0.6846
+LDA score: 0.679
+Random forests score: 0.6689
+KNN score: 0.6869
+Logistic Reg. score: 0.679
+
+{'C': 5.041, 'kernel': 'linear'}
+{'shrinkage': 0.0, 'solver': 'lsqr'}
+{'max_depth': 2}
+{'n_neighbors': 8, 'weights': 'uniform'}
+{'C': 0.036, 'penalty': 'l2'}
+
+----------------------------------------------------------------------------
+
+Name
+
+SVM score: 0.6162
+LDA score: 0.6162
+Random forests score: 0.615
+KNN score: 0.6162
+Logistic Reg. score: 0.6162
+
+{'C': 0.001, 'kernel': 'linear'}
+{'shrinkage': 0.0, 'solver': 'lsqr'}
+{'max_depth': 1}
+{'n_neighbors': 16, 'weights': 'uniform'}
+{'C': 0.001, 'penalty': 'l1'}
+
+----------------------------------------------------------------------------
+
+Sex
+
+SVM score: 0.7868
+LDA score: 0.7868
+Random forests score: 0.7868
+KNN score: 0.7868
+Logistic Reg. score: 0.7868
+
+{'C': 0.121, 'kernel': 'linear'}
+{'shrinkage': 0.0, 'solver': 'lsqr'}
+{'max_depth': 1}
+{'n_neighbors': 5, 'weights': 'uniform'}
+{'C': 0.001, 'penalty': 'l2'}
+
+----------------------------------------------------------------------------
+
+Age
+
+SVM score: 0.6386
+LDA score: 0.6162
+Random forests score: 0.6352
+KNN score: 0.6352
+Logistic Reg. score: 0.6162
+
+{'C': 6.561, 'gamma': 0.162, 'kernel': 'rbf'}
+{'shrinkage': 0.0, 'solver': 'lsqr'}
+{'max_depth': 3}
+{'n_neighbors': 12, 'weights': 'uniform'}
+{'C': 0.001, 'penalty': 'l1'}
+
+----------------------------------------------------------------------------
+
+SibSp
+
+SVM score: 0.6319
+LDA score: 0.6162
+Random forests score: 0.6296
+KNN score: 0.6285
+Logistic Reg. score: 0.6162
+
+{'C': 0.441, 'gamma': 0.4205, 'kernel': 'rbf'}
+{'shrinkage': 0.0, 'solver': 'lsqr'}
+{'max_depth': 2}
+{'n_neighbors': 34, 'weights': 'uniform'}
+{'C': 0.001, 'penalty': 'l1'}
+
+----------------------------------------------------------------------------
+
+Parch
+
+SVM score: 0.6319
+LDA score: 0.6083
+Random forests score: 0.624
+KNN score: 0.6308
+Logistic Reg. score: 0.6162
+
+{'C': 5.041, 'gamma': 0.05, 'kernel': 'rbf'}
+{'shrinkage': 0.0, 'solver': 'lsqr'}
+{'max_depth': 2}
+{'n_neighbors': 91, 'weights': 'uniform'}
+{'C': 0.001, 'penalty': 'l1'}
+
+----------------------------------------------------------------------------
+
+Fare
+
+SVM score: 0.6801
+LDA score: 0.6712
+Random forests score: 0.7205
+KNN score: 0.6992
+Logistic Reg. score: 0.67
+
+{'C': 29.241, 'gamma': 0.0125, 'kernel': 'rbf'}
+{'shrinkage': 0.0, 'solver': 'lsqr'}
+{'max_depth': 7}
+{'n_neighbors': 22, 'weights': 'distance'}
+{'C': 0.036, 'penalty': 'l1'}
+
+----------------------------------------------------------------------------
+
+Embarked0
+
+SVM score: 0.6364
+LDA score: 0.6364
+Random forests score: 0.6364
+KNN score: 0.6364
+Logistic Reg. score: 0.6364
+
+{'C': 0.121, 'kernel': 'linear'}
+{'shrinkage': 0.0, 'solver': 'lsqr'}
+{'max_depth': 1}
+{'n_neighbors': 39, 'weights': 'uniform'}
+{'C': 0.121, 'penalty': 'l2'}
+
+----------------------------------------------------------------------------
+
+Embarked1
+
+SVM score: 0.6162
+LDA score: 0.6162
+Random forests score: 0.6162
+KNN score: 0.6162
+Logistic Reg. score: 0.6162
+
+{'C': 0.001, 'kernel': 'linear'}
+{'shrinkage': 0.0, 'solver': 'lsqr'}
+{'max_depth': 1}
+{'n_neighbors': 34, 'weights': 'uniform'}
+{'C': 0.001, 'penalty': 'l1'}
+
+
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
