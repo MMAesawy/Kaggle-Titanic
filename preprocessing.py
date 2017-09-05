@@ -8,7 +8,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import ElasticNet, LogisticRegression
 from sklearn.svm import SVC
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from sklearn.ensemble import RandomForestClassifier, BaggingClassifier
+from sklearn.ensemble import RandomForestClassifier, BaggingClassifier, AdaBoostClassifier
 from sklearn.neighbors import KNeighborsClassifier
 import random
 import os
@@ -142,6 +142,47 @@ if __name__ == '__main__':
     df = main()
     #fit(df)
 
+    #df['Sex'] = np.where(df['Sex'] == 0, -1, 1)
+    df = pd.concat([df, pd.Series(df['Sex'] * df['Pclass'])], axis = 1)
+    X = df.iloc[:, 1:].values
+    y = df['Survived'].values
+    bag = BaggingClassifier(n_estimators=100, bootstrap=True)
+    rfc = RandomForestClassifier(n_jobs=-1, n_estimators=100,max_features=None,min_samples_split=8,max_depth = 18,random_state=random_seed)
+    ada_gs = GridSearchCV(cv=10, n_jobs=-1, scoring='accuracy', verbose=1,
+                          estimator=AdaBoostClassifier(n_estimators= 100,
+                                                           random_state=random_seed),
+                          param_grid=[{'learning_rate': [x ** 2 / 2000 for x in range(1, 75, 1)]}])
+    rfc_errors = []
+    bag_errors = []
+    cv = StratifiedKFold(10, random_state=random_seed)
+    for train, test in cv.split(X, y):
+        X_train, X_test = X[train, :], X[test,]
+        y_train, y_test = y[train], y[test]
+        rfc.fit(X_train, y_train)
+        bag.fit(X_train, y_train, None)
+        rfc_y_pred = rfc.predict(X_test)
+        bag_y_pred = bag.predict(X_test)
+        rfc_errors.append(accuracy_score(y_test, rfc_y_pred))
+        bag_errors.append(accuracy_score(y_test, bag_y_pred))
+    print('RFC error:', sum(rfc_errors) / len(rfc_errors))
+    print('BAG error:', sum(bag_errors) / len(bag_errors))
+    ada_gs.fit(X, y)
+    print(f'AdaBoost score: {ada_gs.best_score_:.4}')
+    print(ada_gs.best_params_)
+
+    '''
+    RFC error: 0.829546873227
+BAG error: 0.811582113268
+AdaBoost score: 0.8238
+{'learning_rate': 1.7405}
+    '''
+    #os.system('rundll32.exe PowrProf.dll,SetSuspendState 0,1,0')
+
+   # Random
+   # forests
+   # score: 0.8406
+    #{'max_depth': 18, 'max_features': 9, 'min_samples_split': 8}
+'''
     vc = VotingClassifier(estimators=[
         ('svm', SVC(C=14.641, gamma = 0.032, kernel = 'rbf', probability=True)),
         ('lda', LinearDiscriminantAnalysis(shrinkage=0.26, solver='lsqr')),
@@ -160,10 +201,10 @@ if __name__ == '__main__':
         y_pred = vc.predict(X_test)
         cv_errors.append(accuracy_score(y_test, y_pred))
     print(sum(cv_errors)/len(cv_errors))
+'''
 
 
 
-    #os.system('rundll32.exe PowrProf.dll,SetSuspendState 0,1,0')
 
 
 '''
